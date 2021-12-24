@@ -13,7 +13,6 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     strategy:
-      fail-fast: false
       matrix:
         node: [12.x, 14.x, 16.x]
         os: [ubuntu-latest, windows-latest]
@@ -30,8 +29,16 @@ jobs:
     - run: npx nyc report --reporter=text-lcov | npx coveralls
     - name: Coveralls
       uses: coverallsapp/github-action@master
-      env:
-        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         parallel: true
+
+  finish:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Coveralls Finished
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        parallel-finished: true
