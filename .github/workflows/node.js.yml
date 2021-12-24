@@ -8,6 +8,7 @@ on:
 
 env:
   CI: true
+  CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
 jobs:
   build:
@@ -28,23 +29,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
     - run: yarn install --frozen-lockfile
-    - run: npx nyc npm test
-    - run: npx nyc report --reporter=text-lcov | npx coveralls
-    - name: Coveralls
-      uses: coverallsapp/github-action@v1.1.2
-      env:
-        NODE_COVERALLS_DEBUG: 1
-      with:
-        flag-name: os-${{ matrix.os }}-node-${{ matrix.node }}
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        parallel: true
-
-  finish:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-    - name: Coveralls Finished
-      uses: coverallsapp/github-action@v1.1.2
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        parallel-finished: true
+    - run: npx nyc --reporter=lcov --reporter=text npm test
+    - run: npx codecov
