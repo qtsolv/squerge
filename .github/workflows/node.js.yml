@@ -9,11 +9,14 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    name: Node ${{ matrix.node }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
 
     strategy:
+      fail-fast: false
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node: [12.x, 14.x, 16.x]
+        os: [ubuntu-latest, windows-latest]
 
     steps:
     - uses: actions/checkout@v2
@@ -24,3 +27,9 @@ jobs:
         cache: 'yarn'
     - run: yarn install --frozen-lockfile
     - run: npx nyc npm test
+    - run: nyc report --reporter=text-lcov | coveralls
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        parallel: true
