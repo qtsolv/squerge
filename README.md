@@ -2,6 +2,9 @@
 
 Utility [npm](https://www.npmjs.com/) package to merge multiple test execution reports for [SonarQube](https://www.sonarqube.org/).
 
+[![Node.js CI](https://github.com/qtsolv/squerge/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/qtsolv/squerge/actions/workflows/node.js.yml)
+[![codecov](https://codecov.io/gh/qtsolv/squerge/branch/main/graph/badge.svg?token=W6OAHVJKPS)](https://codecov.io/gh/qtsolv/squerge)
+
 ### Installation
 
 To install the library in your project, use below command:
