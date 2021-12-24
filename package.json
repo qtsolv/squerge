@@ -40,8 +40,7 @@
     "url": "git+https://github.com/qtsolv/squerge.git"
   },
   "scripts": {
-    "postinstall": "husky install",
     "test": "mocha"
   },
-  "version": "1.0.0"
+  "version": "1.0.1"
 }

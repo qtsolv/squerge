@@ -2,6 +2,8 @@
 
 Utility [npm](https://www.npmjs.com/) package to merge multiple test execution reports for [SonarQube](https://www.sonarqube.org/).
 
+[![npm](https://img.shields.io/npm/dm/squerge)](https://www.npmjs.com/package/squerge)
+[![npm](https://img.shields.io/npm/v/squerge)](https://www.npmjs.com/package/squerge)
 [![Node.js CI](https://github.com/qtsolv/squerge/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/qtsolv/squerge/actions/workflows/node.js.yml)
 [![codecov](https://codecov.io/gh/qtsolv/squerge/branch/main/graph/badge.svg?token=W6OAHVJKPS)](https://codecov.io/gh/qtsolv/squerge)
 
