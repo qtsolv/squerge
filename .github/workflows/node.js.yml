@@ -32,6 +32,8 @@ jobs:
     - run: npx nyc report --reporter=text-lcov | npx coveralls
     - name: Coveralls
       uses: coverallsapp/github-action@v1.1.2
+      env:
+        NODE_COVERALLS_DEBUG: 1
       with:
         flag-name: os-${{ matrix.os }}-node-${{ matrix.node }}
         github-token: ${{ secrets.GITHUB_TOKEN }}
