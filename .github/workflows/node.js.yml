@@ -27,7 +27,7 @@ jobs:
         cache: 'yarn'
     - run: yarn install --frozen-lockfile
     - run: npx nyc npm test
-    - run: nyc report --reporter=text-lcov | coveralls
+    - run: npx nyc report --reporter=text-lcov | npx coveralls
     - name: Coveralls
       uses: coverallsapp/github-action@master
       with:
