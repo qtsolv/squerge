@@ -1,0 +1,14 @@
+<testExecutions version="1">
+    <file path="tests/execution1.spec.js">
+        <testCase name="Test case 1" duration="250" />
+        <testCase name="Test case 2" duration="100">
+            <skipped message="short message">This one skipped.</skipped>
+        </testCase>
+        <testCase name="Test case 3" duration="100">
+            <failure message="short">This one failed.</failure>
+        </testCase>
+        <testCase name="Test case 4" duration="250">
+            <error message="short">This one errored.</error>
+        </testCase>
+    </file>
+</testExecutions>
