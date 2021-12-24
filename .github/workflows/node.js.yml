@@ -31,7 +31,7 @@ jobs:
     - run: npx nyc npm test
     - run: npx nyc report --reporter=text-lcov | npx coveralls
     - name: Coveralls
-      uses: coverallsapp/github-action@v1
+      uses: coverallsapp/github-action@v1.1.2
       with:
         flag-name: os-${{ matrix.os }}-node-${{ matrix.node }}
         github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Coveralls Finished
-      uses: coverallsapp/github-action@v1
+      uses: coverallsapp/github-action@v1.1.2
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         parallel-finished: true
