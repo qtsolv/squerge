@@ -13,7 +13,7 @@ function merge(files, into) {
         (pattern) => glob.sync(pattern, {dot: true}),
     ).flat();
     const merged = create({
-      testExecutions: { },
+      testExecutions: {'@version': 1},
     });
     expanded.forEach((file) => {
       const xml = fs.readFileSync(file, {encoding: 'utf-8'});
