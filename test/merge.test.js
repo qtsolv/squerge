@@ -7,7 +7,7 @@ const {merge} = require('../src/merge');
 const sources = [
   path.join(__dirname, '..', 'sample', '*.spec.js.xml'),
 ];
-const output = path.join(__dirname, '..', 'sample', 'consolidated.xml');
+const output = path.join(__dirname, '..', 'sample', 'combined.xml');
 
 describe('src/merge.js', function() {
   beforeEach(() => {
